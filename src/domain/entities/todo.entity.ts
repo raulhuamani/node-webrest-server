@@ -17,10 +17,11 @@ export class TodoEntity {
     let newCompletedAt;
     if (completedAt) {
       newCompletedAt = new Date(completedAt);
-      if (isNaN(newCompletedAt.getTime()))
-        throw "CompletedAt is not valid date";
+      if (isNaN(newCompletedAt.getTime())) {
+        throw "CompletedAt is not a valid date";
+      }
     }
 
-    return new TodoEntity(id, text, newCompletedAt);
+    return new TodoEntity(id, text, completedAt);
   }
 }
